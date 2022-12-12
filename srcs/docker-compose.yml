@@ -1,0 +1,58 @@
+version: "3"
+
+services:
+  nginx:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/nginx
+    restart: 'always'
+    ports:
+      - '80:80'
+    volumes: 
+      - data:/var/www/html/
+    networks:
+        - internal
+    depends_on:
+      - wordpress
+
+  mariadb:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/mariadb
+    restart: 'always'
+    # ports:
+    #   - '3000:3306'
+    # env_file:
+    #   - /Users/olakhdar/Desktop/inception/srcs/.env
+    # environment:
+      # MYSQL_DATABASE: "${MYSQL_DATABASE}"
+      # MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      # MYSQL_USER: "${MYSQL_USER}"
+      # MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes: 
+      - "mariadbv:/var/lib/mysql"
+    networks:
+        - internal
+
+  wordpress:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/wordpress
+    restart: 'always'
+    # ports:
+    #   - '9001:9000'
+    # env_file:
+    #   - /Users/olakhdar/Desktop/inception/srcs/.env
+    # environment:
+      # WORDPRESS_DB_HOST: mysql
+      # MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      # WORDPRESS_DB_NAME: "${MYSQL_DATABASE}"
+      # WORDPRESS_DB_USER: "${MYSQL_USER}"
+      # WORDPRESS_DB_PASSWORD: "${MYSQL_PASSWORD}"
+    volumes: 
+      - data:/var/www/html/
+    depends_on:
+      - mariadb
+    networks:
+      - internal
+
+networks:
+    internal:
+      driver: bridge
+volumes:
+  data:
+  mariadbv:

@@ -13,7 +13,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 
 RUN wp core download --allow-root 
-    # && wp config create --dbname=mariadb --dbuser=olakhdar --prompt=olakhdar@1
 
 RUN rm -rf /etc/php/7.3/fpm/pool.d/www.conf
 COPY www.conf /etc/php/7.3/fpm/pool.d/

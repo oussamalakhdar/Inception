@@ -2,6 +2,7 @@ FROM debian:buster
 
 RUN apt-get update \
     && apt-get install -y nginx \
+    && apt-get install -y openssl \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 

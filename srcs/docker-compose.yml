@@ -39,9 +39,12 @@ services:
     build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/ftp-server
     restart: 'always'
     volumes: 
-      - data:/var/www/html/
+      - data:/home/oussama/wordpress
     networks:
       - internal
+    ports:
+      - 21:21
+      - "40000-40010:40000-40010"
 
 networks:
     internal:

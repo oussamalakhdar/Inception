@@ -1,10 +1,12 @@
 FROM debian:buster
 
+
 RUN apt-get update \
-    && apt-get install -y wget php php-fpm php-mysql \
-    && mkdir /var/www  && mkdir /var/www/html \
-    && wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer.php
+    && apt-get install -y wget php  php-mysql \
+    && mkdir -p /var/www/html/adminer/ \
+    && wget "http://www.adminer.org/latest.php" -O /var/www/html/adminer/index.php \
+    && mkdir /run/php/
 
-expose 9000
+WORKDIR /var/www/html/adminer/
 
-CMD "php-fpm7.3" "-F" "-R"
+CMD php -S 0.0.0.0:9999

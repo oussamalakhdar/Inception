@@ -48,9 +48,18 @@ services:
       - 21:21
       - "40000-40010:40000-40010"
 
+  adminer:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/adminer
+    restart: 'always'
+    volumes: 
+      - "adminerd:/var/www/html/adminer/"
+    networks:
+        - internal
+
 networks:
     internal:
       driver: bridge
 volumes:
   data:
   mariadbv:
+  adminerd:

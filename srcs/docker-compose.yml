@@ -30,11 +30,13 @@ services:
       - mariadb
     networks:
       - internal
+    
   redis:
     build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/redis
     restart: 'always'
     networks:
       - internal
+      
   ftp-server:
     build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/ftp-server
     restart: 'always'

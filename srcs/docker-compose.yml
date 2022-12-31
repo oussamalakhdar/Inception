@@ -8,6 +8,7 @@ services:
       - '80:80'
     volumes: 
       - data:/var/www/html/
+      - portfoliov:/var/www/html/portfolio
     networks:
         - internal
     depends_on:
@@ -51,10 +52,16 @@ services:
   adminer:
     build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/adminer
     restart: 'always'
-    volumes: 
-      - "adminerd:/var/www/html/adminer/"
     networks:
         - internal
+
+  portfolio:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/portfolio
+    restart: 'always'
+    volumes: 
+      - portfoliov:/var/www/html/portfolio
+    networks:
+      - internal
 
 networks:
     internal:
@@ -62,4 +69,4 @@ networks:
 volumes:
   data:
   mariadbv:
-  adminerd:
+  portfoliov:

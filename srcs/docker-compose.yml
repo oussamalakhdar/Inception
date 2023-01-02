@@ -57,11 +57,22 @@ services:
 
   portfolio:
     build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/portfolio
-    restart: 'always'
+    # restart: 'always'
     volumes: 
       - portfoliov:/var/www/html/portfolio
     networks:
       - internal
+
+  portainer:
+    build: /Users/olakhdar/Desktop/inception/srcs/requirements/bonus/portainer
+    restart: 'always'
+    volumes: 
+      - /var/run/docker.sock:/var/run/docker.sock
+      - portainerd:/data
+    networks:
+      - internal
+    ports:
+      - 9000:9000
 
 networks:
     internal:
@@ -70,3 +81,4 @@ volumes:
   data:
   mariadbv:
   portfoliov:
+  portainerd:

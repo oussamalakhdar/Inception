@@ -1,14 +1,16 @@
 FROM debian:buster
 
 RUN apt-get update \
-    && apt-get install -y nginx \
-    && apt-get install -y openssl \
+    && apt-get install -y nginx openssl\
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 
 RUN rm -rf /etc/nginx/sites-enabled/*
 COPY default /etc/nginx/sites-enabled/
 
-EXPOSE 80
+RUN mkdir -p /etc/ssl/
+COPY /tools/certificate.crt /etc/ssl/certs/
+COPY /tools/private.key /etc/ssl/private/
+
 
 CMD ["nginx", "-g", "daemon off;"]

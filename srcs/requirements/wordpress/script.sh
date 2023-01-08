@@ -1,14 +1,9 @@
 #!/bin/bash
-while true; do
-  mysql -h $DB_HOST -u $DB_USER --password="$DB_PASSWORD"
-  if [ $? -eq 0 ]; then
-    break
-  fi
-  sleep 1
-done 
+
 wp core config --allow-root --dbhost="${DB_HOST}" --dbname="${DB_NAME}" --dbuser="${DB_USER}" --dbpass="${DB_PASSWORD}"
 chmod 600 wp-config.php
 chown -R www-data *
+# chmod 777 -R *
 
 wp config set --allow-root 'WP_REDIS_HOST' 'redis';
 wp config set --allow-root 'WP_REDIS_PORT' 6379;

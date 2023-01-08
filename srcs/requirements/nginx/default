@@ -1,8 +1,8 @@
-# server {
-#     listen 80;
-#     server_name olakhdar.42.fr;
-#     return 301 https://olakhdar.42.fr$request_uri;
-# }
+#server {
+#    listen 80;
+#    server_name olakhdar.42.fr;
+#    return 301 https://olakhdar.42.fr$request_uri;
+#}
 
 server {
 
@@ -14,36 +14,37 @@ server {
 
 	server_name olakhdar.42.fr;
 	
-		root /var/www/html/;
+	root /var/www/html/;
+	
+	index index.html index.php;
 
-	  # Add index.php to the list if you are using PHP
-		index index.html index.php;
+	location / {
 
-		location / {
-		    try_files $uri $uri/ =404;
-		}
+	   try_files $uri $uri/ =404;
+	}
 
-		location /adminer {
-			
-			proxy_pass http://adminer:9999;
-		}
+	location /adminer {
+		
+		proxy_pass http://adminer:9999;
+	}
 
-		location /portfolio  {
-			
-			alias /var/www/html/portfolio;
-		}
+	location /portfolio  {
+		
+		alias /var/www/html/portfolio;
+	}
 
-		location ~ \.php$ {
+	location ~ \.php$ {
+		
+	    include snippets/fastcgi-php.conf;
+	    fastcgi_pass wordpress:9000;
 
-		    include snippets/fastcgi-php.conf;
-		    fastcgi_pass wordpress:9000;
-
-		}
+	}
 }
 
 server
 {
 	listen 443 ssl;
+	
 	ssl_certificate /etc/ssl/certs/certificate.crt;
 	ssl_certificate_key /etc/ssl/private/private.key;
 	ssl_protocols TLSv1.2 TLSv1.3;

@@ -16,15 +16,17 @@ services:
       - wordpress
 
   mariadb:
-    build: /home/olakhdar/Desktop/inception/srcs/requirements/mariadb
     container_name: mariadb
+    build:
+      context : /home/olakhdar/Desktop/inception/srcs/requirements/mariadb
+      args:
+        - DB_NAME
+        - DB_USER
+        - DB_PASSWORD
+        - DB_ROOT_PASSWORD
     restart: 'always'
-    environment: 
-      - DB_NAME=$DB_NAME
-      - DB_USER=$DB_USER
-      - DB_PASSWORD=$DB_PASSWORD
     volumes: 
-      - "mariadbv:/var/lib/mysql"
+      - mariadbv:/var/lib/mysql/
     networks:
         - internal
 
@@ -40,13 +42,7 @@ services:
       - mariadb
     networks:
       - internal
-    # healthcheck:
-    #   test: ping mariadb || exit 1
-    #   interval: 60s
-    #   retries: 5
-    #   start_period: 20s
-    #   timeout: 10s
-    
+
   redis:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/redis
     container_name: redis
@@ -96,7 +92,27 @@ networks:
     internal:
       driver: bridge
 volumes:
-  data: 
+  data:
+    driver: local
+    driver_opts:
+      type: none
+      device:  /home/olakhdar/data/wordpress
+      o: bind
   mariadbv:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/olakhdar/data/mariadb
+      o: bind
   portfoliov:
+    driver: local
+    driver_opts:
+      type: none
+      device:  /home/olakhdar/data/portfoliov
+      o: bind
   portainerd:
+    driver: local
+    driver_opts:
+      type: none
+      device: /home/olakhdar/data/portainer
+      o: bind

@@ -1,12 +1,12 @@
 FROM debian:buster
 
 RUN apt-get update \
-    && apt-get install -y vsftpd 
+    && apt-get install -y vsftpd
 
 WORKDIR /
 
-RUN rm -f /etc/vsftpd.conf && mkdir /var/run/vsftpd && mkdir /var/run/vsftpd/empty
-COPY vsftpd.conf /etc
+RUN rm -f /etc/vsftpd.conf && mkdir -p /var/run/vsftpd/empty
+COPY vsftpd.conf /etc/
 
 
 COPY script.sh /bin/

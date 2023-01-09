@@ -3,9 +3,8 @@
 wp core config --allow-root --dbhost="${DB_HOST}" --dbname="${DB_NAME}" --dbuser="${DB_USER}" --dbpass="${DB_PASSWORD}"
 chmod 600 wp-config.php
 chown -R www-data *
-# chmod 777 -R *
 
-wp config set --allow-root 'WP_REDIS_HOST' 'redis';
+wp config set --allow-root 'WP_REDIS_HOST' "${REDIS_HOST}";
 wp config set --allow-root 'WP_REDIS_PORT' 6379;
 
 wp core install --allow-root --url="${WP_URL}" --title="${WP_TITLE}" --admin_name="${WP_ADMIN}" --admin_password="${WP_ADMIN_PASS}" --admin_email="${WP_ADMIN_MAIL}"

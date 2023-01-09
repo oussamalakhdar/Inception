@@ -15,11 +15,11 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 RUN wp core download --allow-root 
 
 RUN rm -rf /etc/php/7.3/fpm/pool.d/www.conf
-COPY www.conf /etc/php/7.3/fpm/pool.d/
+COPY ./conf/www.conf /etc/php/7.3/fpm/pool.d/
 
 RUN service php7.3-fpm stop
 
-COPY script.sh /bin/
+COPY ./tools/script.sh /bin/
 
 RUN chmod 777 /bin/script.sh
 

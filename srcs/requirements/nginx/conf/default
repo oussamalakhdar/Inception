@@ -18,27 +18,27 @@ server {
 	
 	index index.html index.php;
 
-	location / {
+	location /	{
 
 	   try_files $uri $uri/ =404;
 	}
 
-	location /adminer {
+	location /adminer	{
 		
 		proxy_pass http://adminer:9999;
 	}
 
-	location /portfolio  {
+	location /portfolio	{
 		
 		alias /var/www/html/portfolio;
 	}
 
-	location ~ \.php$ {
-		
+	location ~ \.php$	{
+	
 	    include snippets/fastcgi-php.conf;
 	    fastcgi_pass wordpress:9000;
-
 	}
+	
 }
 
 server

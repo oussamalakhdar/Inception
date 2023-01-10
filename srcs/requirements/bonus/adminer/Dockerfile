@@ -9,9 +9,5 @@ RUN apt-get update \
 
 WORKDIR /var/www/html/adminer/
 
-ADD https://github.com/krallin/tini/releases/download/v0.19.0/tini /tini
-RUN chmod +x /tini
-
-ENTRYPOINT ["/tini", "--"]
 
 CMD php -S 0.0.0.0:9999

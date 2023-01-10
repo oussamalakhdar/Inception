@@ -7,13 +7,14 @@ services:
     restart: 'always'
     ports:
       - '443:443'
-    volumes: 
+    volumes:
       - data:/var/www/html/
       - portfoliov:/var/www/html/portfolio
     networks:
         - internal
     depends_on:
       - wordpress
+    init: true
 
   mariadb:
     container_name: mariadb
@@ -29,6 +30,7 @@ services:
       - mariadbv:/var/lib/mysql/
     networks:
         - internal
+    init: true
 
   wordpress:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/wordpress
@@ -42,6 +44,7 @@ services:
       - mariadb
     networks:
       - internal
+    init: true
 
   redis:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/redis
@@ -49,6 +52,7 @@ services:
     restart: 'always'
     networks:
       - internal
+    init: true
   
   ftp-server:
     build: //home/olakhdar/Desktop/inception/srcs/requirements/bonus/ftp-server
@@ -61,6 +65,7 @@ services:
     ports:
       - 21:21
       - "40000-40010:40000-40010"
+    init: true
 
   adminer:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/adminer
@@ -68,15 +73,16 @@ services:
     restart: 'always'
     networks:
         - internal
+    init: true
 
   portfolio:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/portfolio
     container_name: portfolio
-    # restart: 'always'
     volumes: 
       - portfoliov:/var/www/html/portfolio
     networks:
       - internal
+    init: true
 
   portainer:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/portainer
@@ -87,10 +93,12 @@ services:
       - portainerd:/data
     networks:
       - internal
+    init: true
 
 networks:
     internal:
       driver: bridge
+
 volumes:
   data:
     driver: local

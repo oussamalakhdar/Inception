@@ -6,10 +6,10 @@ RUN apt-get update \
 WORKDIR /
 
 RUN rm -f /etc/vsftpd.conf && mkdir -p /var/run/vsftpd/empty
-COPY vsftpd.conf /etc/
+COPY ./conf/vsftpd.conf /etc/
 
 
-COPY script.sh /bin/
+COPY ./tools/script.sh /bin/
 
 RUN chmod 777 /bin/script.sh
 

@@ -9,5 +9,4 @@ RUN apt-get update \
 
 WORKDIR /var/www/html/adminer/
 
-
 CMD php -S 0.0.0.0:9999

@@ -1,8 +1,3 @@
-#server {
-#    listen 80;
-#    server_name olakhdar.42.fr;
-#    return 301 https://olakhdar.42.fr$request_uri;
-#}
 
 server {
 

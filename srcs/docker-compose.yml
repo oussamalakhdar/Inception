@@ -4,6 +4,7 @@ services:
   nginx:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/nginx
     container_name: nginx
+    image : nginx
     restart: 'always'
     ports:
       - '443:443'
@@ -25,6 +26,7 @@ services:
         - DB_USER
         - DB_PASSWORD
         - DB_ROOT_PASSWORD
+    image : mariadb
     restart: 'always'
     volumes: 
       - mariadbv:/var/lib/mysql/
@@ -35,6 +37,7 @@ services:
   wordpress:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/wordpress
     container_name: wordpress
+    image : wordpress
     restart: 'always'
     env_file: 
       - .env
@@ -49,14 +52,16 @@ services:
   redis:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/redis
     container_name: redis
+    image : redis
     restart: 'always'
     networks:
       - internal
     init: true
   
   ftp-server:
-    build: //home/olakhdar/Desktop/inception/srcs/requirements/bonus/ftp-server
+    build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/ftp-server
     container_name: ftp-server
+    image : ftp-server
     restart: 'always'
     volumes: 
       - data:/home/oussama/wordpress
@@ -70,6 +75,7 @@ services:
   adminer:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/adminer
     container_name: adminer
+    image : adminer
     restart: 'always'
     networks:
         - internal
@@ -78,6 +84,7 @@ services:
   portfolio:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/portfolio
     container_name: portfolio
+    image : portfolio
     volumes: 
       - portfoliov:/var/www/html/portfolio
     networks:
@@ -87,6 +94,7 @@ services:
   portainer:
     build: /home/olakhdar/Desktop/inception/srcs/requirements/bonus/portainer
     container_name: portainer
+    image : portainer
     restart: 'always'
     volumes: 
       - /var/run/docker.sock:/var/run/docker.sock

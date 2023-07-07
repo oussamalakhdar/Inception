@@ -45,15 +45,15 @@ The project requires you to set up the following services:
 
 ### Bonus part
 
-1. Redis Cache for WordPress: Set up a Redis cache container to properly manage the cache for your WordPress website. This will improve the performance and efficiency of your website.
+1. **Redis** Cache for WordPress: Set up a Redis cache container to properly manage the cache for your WordPress website. This will improve the performance and efficiency of your website.
 
-2. FTP Server Container: Create an FTP server container that points to the volume containing your WordPress website files.
+2. **FTP** Server Container: Create an FTP server container that points to the volume containing your WordPress website files.
    This will allow you to easily manage and transfer files to and from the container.
 
-3. Simple Static Website: Develop a simple static website in a language of your choice (excluding PHP). This can be a showcase site or a site for presenting your resume.
+3. Simple **Static Website**: Develop a simple static website in a language of your choice (excluding PHP). This can be a showcase site or a site for presenting your resume.
 Host the static website in its own container.
 
-4. Adminer: Set up an Adminer container. Adminer is a database management tool that allows you to conveniently manage your MariaDB container.
+4. **Adminer**: Set up an Adminer container. Adminer is a database management tool that allows you to conveniently manage your MariaDB container.
 
 5. Additional Service of Your Choice: You have the freedom to choose and set up an additional service that you find useful for your project.
 During the defense, please be prepared to explain your choice and explain its significance.
@@ -64,33 +64,34 @@ Remember to follow the specific rules and guidelines mentioned in the project de
 ## What You'll Learn
 By working on this project, you will gain valuable skills and knowledge in the following areas:
 
-1. Infrastructure Setup: You will learn how to design and set up a small infrastructure using Docker Compose.
+1. **Infrastructure Setup**: You will learn how to design and set up a small infrastructure using Docker Compose.
    This includes configuring and connecting multiple containers and volumes to create a functional system.
 
-2. Containerization: You will become proficient in creating Docker containers and writing Dockerfiles for different services.
+2. **Containerization**: You will become proficient in creating Docker containers and writing Dockerfiles for different services.
    You will learn how to build and manage containers, define dependencies, and ensure container restart in case of failures.
 
-3. Docker Compose: You will learn how to use Docker Compose to define and manage multi-container applications.
+3. **Docker Compose**: You will learn how to use Docker Compose to define and manage multi-container applications.
    This includes specifying container configurations, volumes, networks, and dependencies using a declarative YAML syntax.
 
-4. Networking and Communication: You will gain experience in setting up and managing networks within Docker Compose.
+4. **Networking and Communication**: You will gain experience in setting up and managing networks within Docker Compose.
    This involves establishing communication between containers, defining network rules, and configuring container access via specific ports.
 
-5. Service Configuration: You will learn how to configure and customize services such as NGINX, WordPress, and MariaDB within Docker containers.
+5. **Service Configuration**: You will learn how to configure and customize services such as NGINX, WordPress, and MariaDB within Docker containers.
     This includes installing and setting up software, managing environment variables, and handling service-specific configurations.
 
-6. Best Practices: Throughout the project, you will be encouraged to follow best practices for writing Dockerfiles and containerized applications.
+6. **Best Practices**: Throughout the project, you will be encouraged to follow best practices for writing Dockerfiles and containerized applications.
     This includes using appropriate base images, optimizing container size, leveraging environment variables, and implementing secure communication protocols.
 
-7. Troubleshooting and Debugging: As you work with containers and volumes, you may encounter challenges or issues that require troubleshooting.
+7. **Troubleshooting and Debugging**: As you work with containers and volumes, you may encounter challenges or issues that require troubleshooting.
     You will develop skills in diagnosing and resolving common containerization problems, understanding container logs, and ensuring container stability.
 
-Overall, this project will provide you with hands-on experience in containerization, infrastructure deployment, and service configuration using Docker Compose.
+Overall, this project will provide you with hands-on experience in ``containerization``, ``infrastructure deployment``, and ``service configuration`` using Docker Compose.
 These skills are highly relevant in modern software development and can be applied to various projects and scenarios.
 
 ## About this project
 
- tools used for this project :
+ Tools used for this project :
+ 
 - ``Docker`` 
 - ``NGINX`` 
 - ``WordPress``

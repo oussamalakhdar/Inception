@@ -118,3 +118,36 @@ srcs<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__portfolio<br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|___redis<br>
 
+## Getting Started
+
+To Run this project, please use the following steps
+
+Change the variable **WP_URL** in ``.env`` file and make sure to change the paths for the directories used to your own directories
+
+### Install docker on your local machine, follow this guide https://docs.docker.com/engine/install/
+
+### Install git on your local machine, it will depend on the OS running inside it, for example debian OS has the package manager Apt, to install git in Debian we use
+```
+sudo apt-get update && apt-get install git -y
+```
+### Clone the repository on your local machine
+```
+git clone https://github.com/oussamalakhdar/Inception/ && cd Inception
+```
+
+### Run the following command to build the docker images
+```
+make all
+```
+### To run the containers use
+```
+make up
+```
+### To stop the containers run
+```
+make down
+```
+### To clean all volumes run 
+```
+make clean
+```

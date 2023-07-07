@@ -3,7 +3,9 @@
 Welcome to the 42 School Docker-Based System Administration Project! This project is designed to expand your knowledge and proficiency in system administration using Docker. 
 Through this tutorial, you will learn how to virtualize multiple Docker images within your own personal virtual machine, gaining practical experience along the way.
 
+
 ![My Image](picture1.png)
+
 
 ## Project Overview
 The aim of this project is to provide a comprehensive tutorial on virtualizing Docker images within your own personal virtual machine. 

@@ -4,6 +4,7 @@ Welcome to the 42 School Docker-Based System Administration Project! This projec
 Through this tutorial, you will learn how to virtualize multiple Docker images within your own personal virtual machine, gaining practical experience along the way.
 
 //need to add image
+![My Image](picture1.jpg)
 
 ## Project Overview
 The aim of this project is to provide a comprehensive tutorial on virtualizing Docker images within your own personal virtual machine. 
@@ -30,6 +31,7 @@ Docker allows you to package your applications and their dependencies into porta
 The project requires you to set up the following services:
 
 //diagram of the project
+![My Image](picture2.jpg)
 
 1.  **NGINX** Container: This container should contain NGINX and support only ``TLSv1.2`` or ``TLSv1.3``. It will serve as the entrypoint to the infrastructure via port 443.
 
